@@ -19,7 +19,7 @@ class PromoController extends \yii\web\Controller
         foreach ($promos as $promo) {
         	$shop = UserContent::findOne($promo->content_id);
         	if($shop->city_id == $id && $shop->category_id == 1){
-        		$res[] = ['id' => $shop->id, 'title' => $shop->title, 'image' => $promo->imageUrl, 'description' => $promo->description, 'duration' => $promo->duration];
+        		$res[] = ['id' => $shop->id, 'title' => $shop->title, 'image' => $promo->imageUrl, 'description' => $promo->description, 'duration' => $promo->duration, 'paid_status' => $promo->paid];
         	}
         }
         $res = json_encode($res);
